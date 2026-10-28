@@ -1,0 +1,110 @@
+# ==========================================================
+# Terraform
+# ==========================================================
+
+# Directorio local de providers/plugins descargados por `terraform init`
+**/.terraform/*
+.terraform/
+
+# Estado de Terraform: puede contener datos sensibles (IDs, IPs,
+# contraseñas, claves privadas de recursos...). NO versionar nunca.
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Planes guardados (pueden incluir valores sensibles en claro)
+*.tfplan
+*.plan
+
+# Logs de errores de Terraform (pueden contener credenciales)
+crash.log
+crash.*.log
+
+# Ficheros de variables con valores reales/secretos.
+# Si necesitas versionar variables no sensibles, usa terraform.tfvars.example
+# (sin valores reales) y deja los .tfvars fuera del repositorio.
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# Ficheros de override locales (configuración específica de tu máquina)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Configuración de CLI de Terraform (puede contener tokens de Terraform Cloud)
+.terraformrc
+terraform.rc
+
+# NOTA: .terraform.lock.hcl SÍ debe versionarse (fija las versiones
+# exactas de los providers). Por eso no está en esta lista.
+
+# ==========================================================
+# Credenciales y secretos
+# ==========================================================
+
+# ------------------------------------------------------------------
+# QUÉ CREDENCIALES VAN AQUÍ:
+#
+# 1) Credenciales de AWS (Access Key ID + Secret Access Key, y
+#    opcionalmente Session Token). Tipo: "AWS Access Key" de un
+#    usuario/grupo IAM con permisos mínimos (por ejemplo EC2FullAccess
+#    solo para prácticas). NUNCA uses las credenciales root.
+#    - Lo recomendado: NO ponerlas en el repo. Usa variables de entorno
+#      (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_SESSION_TOKEN),
+#      el fichero ~/.aws/credentials, o AWS SSO / un rol IAM.
+#    - Si por algún motivo las pones en un fichero del proyecto,
+#      que sea un .tfvars / .env (ya ignorados arriba) o el
+#      credentials.aws de abajo.
+#
+# 2) Clave privada SSH (.pem) de la key pair de EC2.
+#    Tipo: "RSA/ED25519 private key" descargada al crear el key pair
+#    en AWS. Es equivalente a una contraseña de acceso a la instancia.
+#
+# 3) Tokens de Terraform Cloud / HCP Terraform (API token).
+#    Tipo: "Terraform Cloud user/team/organization token".
+#
+# 4) Contraseñas de bases de datos, API keys de terceros, etc.
+#    Tipo: cualquier secreto que uses en variables de Terraform.
+# ------------------------------------------------------------------
+
+# Credenciales AWS
+.aws/
+credentials
+credentials.aws
+*.aws_credentials
+
+# Claves privadas SSH / TLS
+*.pem
+*.key
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+*.p12
+*.pfx
+
+# Ficheros de entorno con secretos
+.env
+.env.*
+!.env.example
+secrets.tfvars
+secret.tfvars
+*.secret
+
+# Tokens de Terraform Cloud
+.tfcloud
+*.tfc_token
+
+# ==========================================================
+# Editores / Sistema operativo
+# ==========================================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
