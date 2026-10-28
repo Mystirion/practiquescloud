@@ -1,0 +1,85 @@
+# ==========================================================
+# Artefactos generados por `terraform init`
+# ==========================================================
+
+# Directorio local con los providers/plugins descargados
+.terraform/
+**/.terraform/*
+
+# Lock file de providers (por petición; lo habitual es versionarlo)
+.terraform.lock.hcl
+
+# Fichero de bloqueo temporal del state
+.terraform.tfstate.lock.info
+
+# ==========================================================
+# Otros artefactos de Terraform
+# ==========================================================
+
+# Estado (puede contener datos sensibles)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Planes guardados
+*.tfplan
+*.plan
+
+# Logs de errores (pueden contener credenciales)
+crash.log
+crash.*.log
+
+# Variables con valores reales/secretos
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# Overrides locales
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Configuración del CLI (puede contener tokens)
+.terraformrc
+terraform.rc
+
+# ==========================================================
+# Credenciales y secretos
+# ==========================================================
+
+# Credenciales AWS (Access Key ID + Secret Access Key)
+.aws/
+credentials
+credentials.aws
+*.aws_credentials
+
+# Claves privadas SSH/TLS de EC2 (.pem) y similares
+*.pem
+*.key
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Ficheros de entorno con secretos
+.env
+.env.*
+!.env.example
+*.secret
+
+# Tokens de Terraform Cloud
+.tfcloud
+*.tfc_token
+
+# ==========================================================
+# Editores / Sistema operativo
+# ==========================================================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
