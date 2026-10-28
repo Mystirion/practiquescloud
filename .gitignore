@@ -36,6 +36,7 @@ override.tf.json
 # Configuración de CLI de Terraform (puede contener tokens de Terraform Cloud)
 .terraformrc
 terraform.rc
+.terraform.lock.hcl
 
 # NOTA: .terraform.lock.hcl SÍ debe versionarse (fija las versiones
 # exactas de los providers). Por eso no está en esta lista.
