@@ -1,1 +1,1 @@
-# 
+# Recuerda que para ue funcione deves crear en la maquina wsl en la home de usuario la carpeta .aws y dentro el fichero credentials donde debes poner la cli de la sesion del laboratorio
