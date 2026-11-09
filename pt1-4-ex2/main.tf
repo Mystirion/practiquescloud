@@ -58,17 +58,6 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_instance" "admin_dylan" {
-  count         = 2
-  ami           = data.aws_ami.amazon_linux.id
-  instance_type = "t3.micro"
-  subnet_id     = aws_subnet.subnet_b.id
-
-  tags = {
-    Name = "AdminDylan${count.index + 1}"
-  }
-}
-
 resource "aws_instance" "servers_dylan" {
   count         = 2
   ami           = data.aws_ami.amazon_linux.id
@@ -77,6 +66,17 @@ resource "aws_instance" "servers_dylan" {
 
   tags = {
     Name = "ServersDylan${count.index + 1}"
+  }
+}
+
+resource "aws_instance" "admin_dylan" {
+  count         = 2
+  ami           = data.aws_ami.amazon_linux.id
+  instance_type = "t3.micro"
+  subnet_id     = aws_subnet.subnet_b.id
+
+  tags = {
+    Name = "AdminDylan${count.index + 1}"
   }
 }
 
