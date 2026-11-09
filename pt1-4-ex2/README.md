@@ -6,5 +6,4 @@ En este proyecto crearemos una VPC con 3 subnets:
    - Subnet_B: 10.0.30.0/23
    - Subnet_C: 10.0.33.0/28  
 ![](/pt1-4-ex2/assets/vpc_subnets.png)  
-
 ![](/pt1-4-ex2/assets/ec2_instances.png)  
