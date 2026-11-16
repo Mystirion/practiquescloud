@@ -38,7 +38,7 @@ resource "aws_vpc" "vpc_terraform" {
 }
 ```  
 
-Luego de crear la VPC ahora si el script crea la subred:
+Luego de crear la VPC, el script crea la subred:
 ```
 # Se crea la Subnet_A asignada a VPC_Terraform.
 # vpc_id indica la VPC que la subred tendra asignada.
