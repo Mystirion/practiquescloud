@@ -22,6 +22,7 @@ En total son 6 instancias EC2 de tipo t3.micro
 ![](/pt1-4-ex2/assets/ec2_instances.png)  
 ## Sobre el contenido de main.tf  
 El script creara todo lo mencionado anteriormente siguiendo un orden, primero creara el **VPC**, luego creara las **subredes** y por ultimo las **instancias**.  
+
 Las subredes necesitan de una VPC para ser creadas correctamente es por eso que la VPC es lo primero que se debe crear:  
 ```
 # Se crea la VPC con nombre VPC_Terraform
