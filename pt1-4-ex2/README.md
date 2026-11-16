@@ -25,7 +25,8 @@ El script creara todo lo mencionado anteriormente siguiendo un orden, primero cr
 
 Las subredes necesitan de una VPC para ser creadas correctamente es por eso que la VPC es lo primero que se debe crear:  
 ```
-# Se crea la VPC con nombre VPC_Terraform
+# Se crea la VPC con nombre VPC_Terraform.
+
 resource "aws_vpc" "vpc_terraform" {
   cidr_block           = "X.X.X.X/X"
   enable_dns_hostnames = true
@@ -41,6 +42,7 @@ Luego de crear la VPC ahora si el script crea la subred:
 ```
 # Se crea la Subnet_A asignada a VPC_Terraform.
 # vpc_id indica la VPC que la subred tendra asignada.
+
 resource "aws_subnet" "subnet_a" {
   vpc_id            = aws_vpc.vpc_terraform.id
   cidr_block        = "X.X.X.X/X"
@@ -54,8 +56,9 @@ resource "aws_subnet" "subnet_a" {
 
 Es mejor dejar las instancias al final, asi cuando se crean ya estaran asignadas a su subred:  
 ```
-# Se crean dos instancias asignadas a la Subnet_A
+# Se crean dos instancias asignadas a la Subnet_A.
 # subnet_id indica la subnet que las instancias tendran asignadas.
+
 resource "aws_instance" "servers_dylan" {
   count         = 2
   ami           = data.aws_ami.amazon_linux.id
