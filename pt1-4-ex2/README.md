@@ -55,8 +55,7 @@ resource "aws_subnet" "subnet_a" {
 Es mejor dejar las instancias al final, asi cuando se crean ya estaran asignadas a su subred:  
 ```
 # Se crean dos instancias asignadas a la Subnet_A
-# subnet_id indica la subnet que las instancias tendran 
-# asignadas.
+# subnet_id indica la subnet que las instancias tendran asignadas.
 resource "aws_instance" "servers_dylan" {
   count         = 2
   ami           = data.aws_ami.amazon_linux.id
