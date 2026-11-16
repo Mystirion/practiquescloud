@@ -20,14 +20,14 @@ Cada subred tendra 2 instancias **EC2** assignadas:
 
 En total son 6 instancias EC2 de tipo t3.micro
 ![](/pt1-4-ex2/assets/ec2_instances.png)  
-## Sobre el contenido de main.tf  
+## Notas sobre el contenido de main.tf  
 El script creara todo lo mencionado anteriormente siguiendo un orden, primero creara el **VPC**, luego creara las **subredes** y por ultimo las **instancias**.  
 
 Las subredes necesitan de una VPC para ser creadas correctamente es por eso que la VPC es lo primero que se debe crear:  
 ```
 # Se crea la VPC con nombre VPC_Terraform
 resource "aws_vpc" "vpc_terraform" {
-  cidr_block           = "10.0.0.0/16"
+  cidr_block           = "X.X.X.X/X"
   enable_dns_hostnames = true
   enable_dns_support   = true
 
@@ -37,13 +37,13 @@ resource "aws_vpc" "vpc_terraform" {
 }
 ```  
 
-Luego de crear la VPC ahora si creamos la subred:
+Luego de crear la VPC ahora si el script crea la subred:
 ```
 # Se crea la Subnet_A asignada a VPC_Terraform.
-# vpc_id indica la VPC a la que esta subred esta asignada.
+# vpc_id indica la VPC que la subred tendra asignada.
 resource "aws_subnet" "subnet_a" {
   vpc_id            = aws_vpc.vpc_terraform.id
-  cidr_block        = "10.0.32.0/25"
+  cidr_block        = "X.X.X.X/X"
   availability_zone = "us-east-1a"
 
   tags = {
@@ -54,8 +54,9 @@ resource "aws_subnet" "subnet_a" {
 
 Es mejor dejar las instancias al final, asi cuando se crean ya estaran asignadas a su subred:  
 ```
-# Se crea una instancia asignada a la subnet_a
-# subnet_id indica la subnet que la instancia tiene asignada.
+# Se crean dos instancias asignadas a la Subnet_A
+# subnet_id indica la subnet que las instancias tendran 
+# asignadas.
 resource "aws_instance" "servers_dylan" {
   count         = 2
   ami           = data.aws_ami.amazon_linux.id
@@ -75,7 +76,7 @@ Configura tu directorio.
 ```
 terraform init
 ```  
-Verifica tu script y te muestra los cambios que realizara.  
+Verifica el script y muestra los cambios que realizara.  
 ```
 terraform plan
 ```  
