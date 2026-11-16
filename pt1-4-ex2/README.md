@@ -17,5 +17,6 @@ Cada subred tendra 2 instancias **EC2** assignadas:
 - Subnet_C
    - WebDylan1
    - WebDylan2  
+
 En total son 6 instancias EC2 de tipo t3.micro
 ![](/pt1-4-ex2/assets/ec2_instances.png)  
