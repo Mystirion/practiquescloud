@@ -38,7 +38,7 @@ Por ultimo se crean las instancias:
 ```
 # count indica el numero de instancias que se crearan en este caso dos.
 # En ami se indica el sistema operativo.
-# instance_type indicamos el tipo de instancia que queremos para las instancias.
+# instance_type indicamos el tipo de instancia.
 resource "aws_instance" "web" {
   count = 2
 
