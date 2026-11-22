@@ -145,5 +145,3 @@ resource "aws_instance" "ec2-b" {
     Name = "ec2-b"
   }
 }
-
-# waos
